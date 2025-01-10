@@ -22,7 +22,7 @@ export const Header = () => {
         <Link href="/">
           <AKGIcon />
         </Link>
-        <div className="relative flex flex-row" ref={ref}>
+        <div className="relative flex flex-row gap-4" ref={ref}>
           <DarkModeButton />
           <button
             className="text-everglade duration-300 hover:scale-110 hover:text-everglade dark:text-everglade-400 dark:hover:text-everglade-200"

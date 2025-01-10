@@ -19,26 +19,16 @@ export const DarkModeButton = () => {
   const iconClass = "hover:fill-everglade hover:dark:fill-mint h-5 w-5";
 
   return (
-    <Dropdown
-      options={[
-        {
-          value: "system",
-          label: <FaCog className={iconClass} />,
-        },
-        {
-          value: "light",
-          label: <FaSun className={iconClass} />,
-        },
-        {
-          value: "dark",
-          label: <FaMoon className={iconClass} />,
-        },
-      ]}
-      onChange={setTheme}
-      defaultValue={theme || "system"}
-      containerClassName="flex h-5 flex-row items-center justify-center mr-5"
-      menuClassName="border-everglade border-2 mt-2"
-      optionsClassName="p-4"
-    />
+    <>
+      {theme === "dark" ? (
+        <button onClick={() => setTheme("light")}>
+          <FaSun className={iconClass} />
+        </button>
+      ) : (
+        <button onClick={() => setTheme("dark")}>
+          <FaMoon className={iconClass} />
+        </button>
+      )}
+    </>
   );
 };
