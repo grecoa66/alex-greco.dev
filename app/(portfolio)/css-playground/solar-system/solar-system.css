@@ -1,5 +1,6 @@
 .container {
   display: grid;
+  height: 100%;
   grid-template-areas: "stack";
 }
 .sun {

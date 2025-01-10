@@ -1,8 +1,8 @@
 import "./solar-system.css";
 const SolarSystem = () => {
   return (
-    <div className="full flex h-[calc(100vh-theme(space.16))] w-full flex-row items-center justify-center overflow-hidden bg-white p-4 dark:bg-black">
-      <div className="container h-[80%] w-[80%]">
+    <div className="flex h-[calc(100vh-theme(space.16))] w-[100vw] flex-row content-center items-center justify-center bg-white p-4 dark:bg-black">
+      <div className="container max-w-[50em]">
         <div className="sun" />
 
         <div className="earth">
