@@ -1,0 +1,82 @@
+.container {
+  display: grid;
+  grid-template-areas: "stack";
+}
+.sun {
+  grid-area: stack;
+  place-self: center;
+  height: 7em;
+  width: 7em;
+  background-color: goldenrod;
+  background: radial-gradient(circle, #f9d71c 0%, #f9a825 50%, #f9a825 100%),
+    hsl(0, 0%, 50%);
+  box-shadow: 0 0 3em white;
+  border-radius: 50%;
+}
+
+.earth {
+  position: relative;
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 50%;
+  border: white dashed 2px;
+  border-radius: 50%;
+}
+.earth::after {
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 4s 3s linear infinite;
+  background: radial-gradient(circle, #3a82f7 0%, #2f9e44 80%, #1a5e20 100%),
+    hsl(0, 0%, 50%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 2em;
+  display: block;
+}
+
+.moon {
+  position: absolute;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 4em;
+  border: white dashed 2px;
+  border-radius: 50%;
+}
+
+.moon::after {
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 4s 3s linear infinite;
+  background: radial-gradient(circle, #fff 0%, #2f9e44 80%, #1a5e20 100%),
+    hsl(0, 0%, 50%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.5em;
+  display: block;
+}
+
+.mars {
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 68%;
+  border: white dashed 2px;
+  border-radius: 50%;
+}
+.mars::after {
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 5.4s 3s linear infinite;
+  background: radial-gradient(circle, #e57373 0%, #af4448 100%), hsl(0, 0%, 50%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 2em;
+  display: block;
+}
+
+@keyframes rotate {
+  to {
+    offset-distance: 100%;
+  }
+}

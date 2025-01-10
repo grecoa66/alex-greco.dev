@@ -13,9 +13,6 @@ export const Header = () => {
   const ref = useRef(null);
   useOnClickOutside(ref, () => setIsOpen(false));
 
-  const buttonStyle =
-    "flex flex-row items-center gap-2 p-4 text-celtic-200 dark:text-mint-400 hover:text-everglade dark:hover:text-everglade hover:bg-mint dark:hover:bg-mint";
-
   return (
     <div className="sticky top-0 z-50 h-16" id="header-menu">
       <div className="flex h-full flex-row items-center justify-between bg-white p-4 dark:bg-black">
@@ -47,7 +44,10 @@ export const Header = () => {
             "flex w-full flex-row gap-4 border-2 border-everglade bg-white transition-all duration-300 dark:bg-black"
           }
         >
-          <Link className={buttonStyle} href="/css-playground">
+          <Link
+            className="flex flex-row items-center gap-2 p-4 text-celtic-200 hover:bg-mint hover:text-everglade dark:text-mint-400 dark:hover:bg-mint dark:hover:text-everglade"
+            href="/css-playground"
+          >
             <FaPaintBrush />
             <p>CSS Playground</p>
           </Link>
