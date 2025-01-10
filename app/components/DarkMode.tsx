@@ -1,12 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { FaCog, FaMoon, FaSun } from "react-icons/fa";
-import Dropdown from "./Dropdown";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 export const DarkModeButton = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -18,9 +17,11 @@ export const DarkModeButton = () => {
 
   const iconClass = "hover:fill-everglade hover:dark:fill-mint h-5 w-5";
 
+  const resolvedTheme = theme === "system" ? systemTheme : theme;
+
   return (
     <>
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         <button onClick={() => setTheme("light")}>
           <FaSun className={iconClass} />
         </button>
