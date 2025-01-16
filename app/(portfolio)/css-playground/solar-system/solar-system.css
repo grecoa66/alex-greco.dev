@@ -6,12 +6,12 @@
 .sun {
   grid-area: stack;
   place-self: center;
-  height: 3.6em;
-  width: 3.6em;
+  height: 3em;
+  width: 3em;
   background-color: goldenrod;
   background: radial-gradient(circle, #f9d71c 0%, #f9a825 50%, #f9a825 100%),
     hsl(0, 0%, 50%);
-  box-shadow: 0 0 3em white;
+  box-shadow: 0 0 1em white;
   border-radius: 50%;
 }
 
@@ -19,19 +19,19 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 18%;
+  width: 12%;
   border-radius: 50%;
 }
 .mercury::before {
   box-shadow: 0 0 0.5em #b1a17b;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 2.75s linear infinite; */
+  animation: rotate 3s linear infinite;
   background: radial-gradient(circle, #b1a17b 0%, #8a795d 60%, #5e5340 100%),
     hsl(33, 15%, 35%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 0.62em;
+  width: 0.58em;
   display: block;
 }
 
@@ -39,14 +39,14 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 24%;
+  width: 17%;
   border-radius: 50%;
 }
 .venus::before {
   box-shadow: 0 0 0.5em #f5deb3;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 3s linear infinite; */
+  animation: rotate 3.5s linear infinite;
   background: radial-gradient(circle, #f5deb3 0%, #e3a857 50%, #a0522d 100%),
     hsl(34, 60%, 50%);
   offset-path: content-box;
@@ -59,27 +59,27 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 33%;
+  width: 25%;
   border-radius: 50%;
 }
 .earth::before {
   box-shadow: 0 0 0.5em #3a82f7;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 4s linear infinite; */
+  animation: rotate 5s linear infinite;
   background: radial-gradient(circle, #3a82f7 0%, #2f9e44 80%, #1a5e20 100%),
     hsl(0, 0%, 50%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 1.4em;
+  width: 1.2em;
   display: block;
 }
 
 .moon {
   aspect-ratio: 1 / 1;
-  width: 3em;
+  width: 2.3em;
   border-radius: 50%;
-  /* animation: rotate 4s linear infinite; */
+  animation: rotate 5s linear infinite;
   offset-path: content-box;
 }
 
@@ -87,12 +87,12 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 4s linear infinite; */
+  animation: rotate 5s linear infinite;
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 0.2em;
+  width: 0.1em;
   display: block;
 }
 
@@ -100,26 +100,26 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 44%;
+  width: 36%;
   border-radius: 50%;
 }
 .mars::before {
   box-shadow: 0 0 0.5em #e57373;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 5.4s linear infinite; */
+  animation: rotate 6.4s linear infinite;
   background: radial-gradient(circle, #e57373 0%, #af4448 100%), hsl(0, 0%, 50%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 1.2em;
+  width: 1em;
   display: block;
 }
 
 .phobos {
   aspect-ratio: 1 / 1;
-  width: 3em;
+  width: 2em;
   border-radius: 50%;
-  /* animation: rotate 5.4s linear infinite; */
+  animation: rotate 6.4s linear infinite;
   offset-path: content-box;
 }
 
@@ -127,7 +127,7 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 3s linear infinite; */
+  animation: rotate 3.5s linear infinite;
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
@@ -137,9 +137,9 @@
 }
 .deimos {
   aspect-ratio: 1 / 1;
-  width: 2.6em;
+  width: 2.3em;
   border-radius: 50%;
-  /* animation: rotate 5.4s linear infinite; */
+  animation: rotate 6.4s linear infinite;
   offset-path: content-box;
 }
 
@@ -147,7 +147,7 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 2s linear infinite; */
+  animation: rotate 4s linear infinite;
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
@@ -160,14 +160,14 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 65%;
+  width: 52%;
   border-radius: 50%;
 }
 .jupiter::before {
   box-shadow: 0 0 0.5em #d9a066;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 8s linear infinite; */
+  animation: rotate 10s linear infinite;
   background: radial-gradient(
       circle,
       #d9a066 0%,
@@ -186,7 +186,7 @@
   aspect-ratio: 1 / 1;
   width: 2.8em;
   border-radius: 50%;
-  /* animation: rotate 5.4s linear infinite; */
+  animation: rotate 10s linear infinite;
   offset-path: content-box;
 }
 
@@ -194,9 +194,84 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  /* animation: rotate 2s linear infinite; */
+  animation: rotate 4s linear infinite;
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.1em;
+  display: block;
+}
+
+.ganymede {
+  aspect-ratio: 1 / 1;
+  width: 3.1em;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+  offset-path: content-box;
+}
+
+.ganymede::before {
+  box-shadow: 0 0 0.5em #d9d9d9;
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 4.4s linear infinite;
+  background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
+    hsl(0, 0%, 60%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.1em;
+  display: block;
+}
+
+.io {
+  aspect-ratio: 1 / 1;
+  width: 3.5em;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+  offset-path: content-box;
+}
+
+.io::before {
+  box-shadow: 0 0 0.5em #ffd966;
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 4.8s linear infinite;
+  background: radial-gradient(
+      circle,
+      #ffd966 0%,
+      #f4a300 40%,
+      #cc5500 70%,
+      #663300 100%
+    ),
+    hsl(39, 90%, 50%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.1em;
+  display: block;
+}
+
+.callisto {
+  aspect-ratio: 1 / 1;
+  width: 3.8em;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+  offset-path: content-box;
+}
+
+.callisto::before {
+  box-shadow: 0 0 0.5em #8d8d8d;
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 5.2s linear infinite;
+  background: radial-gradient(
+      circle,
+      #8d8d8d 0%,
+      #5f5f5f 80%,
+      #3b3b3b 90%,
+      #1f1f1f 100%
+    ),
+    hsl(0, 0%, 35%);
   offset-path: content-box;
   border-radius: 50%;
   width: 0.1em;
