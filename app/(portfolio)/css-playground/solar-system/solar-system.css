@@ -6,8 +6,8 @@
 .sun {
   grid-area: stack;
   place-self: center;
-  height: 5em;
-  width: 5em;
+  height: 3.6em;
+  width: 3.6em;
   background-color: goldenrod;
   background: radial-gradient(circle, #f9d71c 0%, #f9a825 50%, #f9a825 100%),
     hsl(0, 0%, 50%);
@@ -15,31 +15,71 @@
   border-radius: 50%;
 }
 
+.mercury {
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 18%;
+  border-radius: 50%;
+}
+.mercury::before {
+  box-shadow: 0 0 0.5em #b1a17b;
+  content: "";
+  aspect-ratio: 1 / 1;
+  /* animation: rotate 2.75s linear infinite; */
+  background: radial-gradient(circle, #b1a17b 0%, #8a795d 60%, #5e5340 100%),
+    hsl(33, 15%, 35%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.62em;
+  display: block;
+}
+
+.venus {
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 24%;
+  border-radius: 50%;
+}
+.venus::before {
+  box-shadow: 0 0 0.5em #f5deb3;
+  content: "";
+  aspect-ratio: 1 / 1;
+  /* animation: rotate 3s linear infinite; */
+  background: radial-gradient(circle, #f5deb3 0%, #e3a857 50%, #a0522d 100%),
+    hsl(34, 60%, 50%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.66em;
+  display: block;
+}
+
 .earth {
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 45%;
+  width: 33%;
   border-radius: 50%;
 }
 .earth::before {
   box-shadow: 0 0 0.5em #3a82f7;
   content: "";
   aspect-ratio: 1 / 1;
-  animation: rotate 4s linear infinite;
+  /* animation: rotate 4s linear infinite; */
   background: radial-gradient(circle, #3a82f7 0%, #2f9e44 80%, #1a5e20 100%),
     hsl(0, 0%, 50%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 1.8em;
+  width: 1.4em;
   display: block;
 }
 
 .moon {
   aspect-ratio: 1 / 1;
-  width: 4em;
+  width: 3em;
   border-radius: 50%;
-  animation: rotate 4s linear infinite;
+  /* animation: rotate 4s linear infinite; */
   offset-path: content-box;
 }
 
@@ -47,12 +87,12 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  animation: rotate 4s linear infinite;
+  /* animation: rotate 4s linear infinite; */
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 0.33em;
+  width: 0.2em;
   display: block;
 }
 
@@ -60,14 +100,14 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 72%;
+  width: 44%;
   border-radius: 50%;
 }
 .mars::before {
   box-shadow: 0 0 0.5em #e57373;
   content: "";
   aspect-ratio: 1 / 1;
-  animation: rotate 5.4s linear infinite;
+  /* animation: rotate 5.4s linear infinite; */
   background: radial-gradient(circle, #e57373 0%, #af4448 100%), hsl(0, 0%, 50%);
   offset-path: content-box;
   border-radius: 50%;
@@ -79,7 +119,7 @@
   aspect-ratio: 1 / 1;
   width: 3em;
   border-radius: 50%;
-  animation: rotate 5.4s linear infinite;
+  /* animation: rotate 5.4s linear infinite; */
   offset-path: content-box;
 }
 
@@ -87,7 +127,7 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  animation: rotate 3s linear infinite;
+  /* animation: rotate 3s linear infinite; */
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
@@ -99,7 +139,7 @@
   aspect-ratio: 1 / 1;
   width: 2.6em;
   border-radius: 50%;
-  animation: rotate 5.4s linear infinite;
+  /* animation: rotate 5.4s linear infinite; */
   offset-path: content-box;
 }
 
@@ -107,7 +147,54 @@
   box-shadow: 0 0 0.5em #d9d9d9;
   content: "";
   aspect-ratio: 1 / 1;
-  animation: rotate 2s linear infinite;
+  /* animation: rotate 2s linear infinite; */
+  background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
+    hsl(0, 0%, 60%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 0.1em;
+  display: block;
+}
+
+.jupiter {
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 65%;
+  border-radius: 50%;
+}
+.jupiter::before {
+  box-shadow: 0 0 0.5em #d9a066;
+  content: "";
+  aspect-ratio: 1 / 1;
+  /* animation: rotate 8s linear infinite; */
+  background: radial-gradient(
+      circle,
+      #d9a066 0%,
+      #c68f53 40%,
+      #8c5523 70%,
+      #5a3a1a 100%
+    ),
+    hsl(30, 50%, 40%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 2em;
+  display: block;
+}
+
+.europa {
+  aspect-ratio: 1 / 1;
+  width: 2.8em;
+  border-radius: 50%;
+  /* animation: rotate 5.4s linear infinite; */
+  offset-path: content-box;
+}
+
+.europa::before {
+  box-shadow: 0 0 0.5em #d9d9d9;
+  content: "";
+  aspect-ratio: 1 / 1;
+  /* animation: rotate 2s linear infinite; */
   background: radial-gradient(circle, #d9d9d9 0%, #a6a6a6 70%, #7a7a7a 100%),
     hsl(0, 0%, 60%);
   offset-path: content-box;
