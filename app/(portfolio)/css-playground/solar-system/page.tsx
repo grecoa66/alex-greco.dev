@@ -24,6 +24,7 @@ const SolarSystem = () => {
           <div className="io" />
           <div className="callisto" />
         </div>
+        <div className="saturn"></div>
       </div>
     </div>
   );

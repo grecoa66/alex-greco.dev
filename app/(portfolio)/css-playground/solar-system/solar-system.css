@@ -278,6 +278,45 @@
   display: block;
 }
 
+.saturn {
+  grid-area: stack;
+  place-self: center;
+  aspect-ratio: 1 / 1;
+  width: 68%;
+  border-radius: 50%;
+}
+
+.saturn::before {
+  box-shadow: 0 0 0.5em #f5e3b3;
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 14s linear infinite;
+  background: radial-gradient(
+      circle,
+      #f5e3b3 0%,
+      #d9c28f 40%,
+      #bfa177 70%,
+      #8c7356 100%
+    ),
+    hsl(42, 50%, 65%);
+  offset-path: content-box;
+  border-radius: 50%;
+  width: 1.5em;
+  display: block;
+}
+
+.saturn::after {
+  content: "";
+  aspect-ratio: 1 / 1;
+  animation: rotate 14s linear infinite;
+  offset-path: content-box;
+  width: 2.4em;
+  display: block;
+  border: 0.2em solid hsla(0, 0%, 90%, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 0.5em #d9d9d9;
+}
+
 @keyframes rotate {
   to {
     offset-distance: 100%;
