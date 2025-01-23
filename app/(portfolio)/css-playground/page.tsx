@@ -28,6 +28,12 @@ const CSSPlayground = () => {
             Grid Background
           </button>
         </Link>
+
+        <Link href={"/css-playground/solar-system"}>
+          <button className="z-20 inline-block w-auto p-2 text-celtic-400 hover:translate-x-1 hover:rotate-3 hover:text-celtic-200 dark:text-mint-400 hover:dark:text-mint-700">
+            Solar System
+          </button>
+        </Link>
       </div>
     </main>
   );
