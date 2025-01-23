@@ -40,8 +40,8 @@
 .sun {
   grid-area: stack;
   place-self: center;
-  height: 4cqi;
-  width: 4cqi;
+  width: 5cqi;
+  aspect-ratio: 1 / 1;
   background-color: goldenrod;
   background: radial-gradient(circle, #f9d71c 0%, #f9a825 50%, #f9a825 100%),
     hsl(0, 0%, 50%);
@@ -212,13 +212,13 @@
     hsl(30, 50%, 40%);
   offset-path: content-box;
   border-radius: 50%;
-  width: 4cqi;
+  width: 3.4cqi;
   display: block;
 }
 
 .europa {
   aspect-ratio: 1 / 1;
-  width: 5.7cqi;
+  width: 5.2cqi;
   border-radius: 50%;
   animation: rotate 10s linear infinite;
   offset-path: content-box;
@@ -239,7 +239,7 @@
 
 .ganymede {
   aspect-ratio: 1 / 1;
-  width: 6.2cqi;
+  width: 6cqi;
   border-radius: 50%;
   animation: rotate 10s linear infinite;
   offset-path: content-box;
@@ -260,7 +260,7 @@
 
 .io {
   aspect-ratio: 1 / 1;
-  width: 6.7cqi;
+  width: 6.4cqi;
   border-radius: 50%;
   animation: rotate 10s linear infinite;
   offset-path: content-box;
