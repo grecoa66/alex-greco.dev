@@ -2,9 +2,6 @@ import "./solar-system.css";
 const SolarSystem = () => {
   return (
     <div className="stars flex h-[calc(100vh-theme(space.16))] w-[100vw] flex-col content-center items-center justify-center bg-black p-4 dark:bg-black">
-      <div className="block lg:hidden">
-        This page is best viewed on a laptop.
-      </div>
       <div className="container">
         <div className="sun" />
 
@@ -23,7 +20,7 @@ const SolarSystem = () => {
           <div className="europa" />
           <div className="ganymede" />
           <div className="io" />
-          {/* <div className="callisto" /> */}
+          <div className="callisto" />
         </div>
         <div className="saturn"></div>
       </div>

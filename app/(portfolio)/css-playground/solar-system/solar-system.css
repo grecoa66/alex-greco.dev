@@ -9,30 +9,39 @@
     radial-gradient(white, rgba(255, 255, 255, 0.1) 1.6px, transparent 5px),
     radial-gradient(
       rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 1.5px
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 0.5px
     ),
     radial-gradient(
       rgba(255, 255, 255, 0.4),
       rgba(12, 221, 144, 0.3) 2px,
       transparent 0.5px
+    ),
+    radial-gradient(
+      rgba(9, 238, 51, 0.4),
+      rgba(66, 78, 74, 0.3) 1.5px,
+      transparent 0.8px
     );
   background-size:
     550px 550px,
     350px 350px,
     250px 250px,
-    150px 150px,
-    666px 666px;
+    180px 150px,
+    666px 666px,
+    620px 620px;
   background-position:
     0 0,
     40px 60px,
-    130px 270px,
+    top 130px right 70px,
     70px 100px,
-    100px 100px;
+    top 100px right 100px,
+    top -300px left -300px;
 }
+
 .container {
   display: grid;
   max-width: 800px;
+  max-height: 80vh;
   aspect-ratio: 1 / 1;
   grid-template-areas: "stack";
   container-type: size;
@@ -316,7 +325,7 @@
   grid-area: stack;
   place-self: center;
   aspect-ratio: 1 / 1;
-  width: 75%;
+  width: 72%;
   border-radius: 50%;
 }
 
