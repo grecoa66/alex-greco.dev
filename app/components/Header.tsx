@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import useOnClickOutside from "../hooks/useClickOutside";
-import { FaBars, FaPaintBrush } from "react-icons/fa";
+import { FaBars, FaBook, FaPaintBrush } from "react-icons/fa";
 import Link from "next/link";
 import { Transition } from "@headlessui/react";
 import { DarkModeButton } from "./DarkMode";
@@ -50,6 +50,13 @@ export const Header = () => {
           >
             <FaPaintBrush />
             <p>CSS Playground</p>
+          </Link>
+          <Link
+            className="flex flex-row items-center gap-2 p-4 text-celtic-200 hover:bg-mint hover:text-everglade dark:text-mint-400 dark:hover:bg-mint dark:hover:text-everglade"
+            href="/blog"
+          >
+            <FaBook />
+            <p>Blog</p>
           </Link>
         </div>
       </Transition>
