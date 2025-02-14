@@ -26,7 +26,7 @@ export default function RemixFeatureFlags() {
         a feature flag. With a few lines of code, any developer can add a
         feature flag to a Remix application with zero dependencies.
       </Paragraph>
-      <Heading title="What are Feature Flags?" id="what-are-feature-flags" />
+      <Heading id="what-are-feature-flags">What are Feature Flags?</Heading>
       <Paragraph>
         A feature flag is a technique to show, hide, enable, or disable a
         feature during runtime. They can be as simple as a boolean value used to
@@ -37,7 +37,7 @@ export default function RemixFeatureFlags() {
         This article will focus on two use-cases: showing or hiding a particular
         feature, and controlling access to a page of an application.
       </Paragraph>
-      <Heading title="Managed Services" id="managed-services" />
+      <Heading id="managed-services">Managed Services</Heading>
       <Paragraph>
         Before diving into a coding example it’s worth mentioning that there are
         many great services for managing feature flags.{" "}
@@ -50,7 +50,7 @@ export default function RemixFeatureFlags() {
         development environments. Teams that pay for these services tend to
         manage many feature flags and run multiple experiments at once.
       </Paragraph>
-      <Heading title="What are we building?" id="what-are-we-building" />
+      <Heading id="what-are-we-building">What are we building?</Heading>
       <Paragraph>
         A simple inventory application for an IT department built with Remix,
         React, and Typescript. We’ll implement zero-dependency feature flags to
@@ -58,7 +58,7 @@ export default function RemixFeatureFlags() {
         load environment variables into an application, set up a context to use
         them client-side, and use http responses to control page access.
       </Paragraph>
-      <Heading title="Requirements" id="requirements" />
+      <Heading id="requirements">Requirements</Heading>
       <List>
         <ListItem>An app to display a company’s IT inventory.</ListItem>
         <ListItem>
@@ -111,7 +111,7 @@ export default function RemixFeatureFlags() {
           text={"Commit #1"}
         />{" "}
       </Paragraph>
-      <Heading title="Setting up the project" id="setting-up-the-project" />
+      <Heading id="setting-up-the-project">Setting up the project</Heading>
       <Paragraph>
         First, let’s set up some of the basic piece of the inventory
         application. Let’s display the inventory for an IT department as a list
@@ -165,10 +165,9 @@ export type InventoryItem = {
         height="740"
         alt="Inventory list"
       />
-      <Heading
-        title="Server-to-Client Feature Flag"
-        id="server-to-client-feature-flag"
-      />
+      <Heading id="server-to-client-feature-flag">
+        Server-to-Client Feature Flag
+      </Heading>
       <Paragraph>
         We’ll implement our first feature flag to show or hide the SKU based on
         an environment variable. First, ensure you have an{" "}
@@ -256,51 +255,146 @@ export const loader = () => {
         Depending on the value of our environment variable we can show or hide
         the SKU.
       </Paragraph>
-      <CodeSnippet2
-        // language="typescript"
-        code={`function createStyleObject(classNames, style) {
-  return classNames.reduce((styleObject, className) => {
-    return {...styleObject, ...style[className]};
-  }, {});
-}
+      <CodeSnippet
+        language="typescript"
+        code={`export const InventoryPage = () => {
+  const { inventoryItems, showItemSku } = useLoaderData<typeof loader>();
 
-function createClassNameString(classNames) {
-  return classNames.join(' ');
-}
-
-// this comment is here to demonstrate an extremely long line length, well beyond what you should probably allow in your own code, though sometimes you'll be highlighting code you can't refactor, which is unfortunate but should be handled gracefully
-
-function createChildren(style, useInlineStyles) {
-  let childrenCount = 0;
-  return children => {
-    childrenCount += 1;
-    return children.map((child, i) => createElement({
-      node: child,
-      style,
-      useInlineStyles,
-      key:\`code-segment-$\{childrenCount}-$\{i}\`
-    }));
-  }
-}
-
-function createElement({ node, style, useInlineStyles, key }) {
-  const { properties, type, tagName, value } = node;
-  if (type === "text") {
-    return value;
-  } else if (tagName) {
-    const TagName = tagName;
-    const childrenCreator = createChildren(style, useInlineStyles);
-    const props = (
-      useInlineStyles
-      ? { style: createStyleObject(properties.className, style) }
-      : { className: createClassNameString(properties.className) }
-    );
-    const children = childrenCreator(node.children);
-    return <TagName key={key} {...props}>{children}</TagName>;
-  }
-}
-  `}
+  return (
+    <div key={item.id} className="...">
+      <p>...</p>
+      {showItemSku ? <p>SKU: {item.sku}</p> : null}
+      <div> ... </div>
+    </div>
+  );
+};
+`}
       />
+      <Heading id="client-side-context-and-feature-flags">
+        Client-Side Context and Feature Flags
+      </Heading>
+
+      <Paragraph>
+        Let’s refactor our example by abstracting out the list item. We'll move
+        our list item code into a component called{" "}
+        <InlineCode>{"<InventoryItem/>"}</InlineCode>. It accepts an inventory
+        item as a prop and returns item UI.
+      </Paragraph>
+      <Paragraph>
+        We could pass the value of <InlineCode>SHOW_SKU_ITEM</InlineCode> as a
+        prop and call it a day. For the sake of a real-life example let’s
+        imagine there are several pages rendering inventory items. We could load{" "}
+        <InlineCode>SHOW_SKU_ITEM</InlineCode> in every loader that renders an
+        inventory item, but this is repetitive and a perfect use-case for React
+        Context. So, let’s initialize context in the root of our application so
+        we can read the feature flag value in any component.
+      </Paragraph>
+
+      <CodeSnippet
+        language="typescript"
+        code={`// app/context/FeatureFlagContext.tsx
+
+import { ReactNode, createContext, useContext } from 'react'
+
+type FeatureFlagContextType = {
+    showItemSku: boolean
+}
+
+export const FeatureFlagContext = createContext<
+    FeatureFlagContextType | undefined
+>(undefined)
+
+export const FeatureFlagProvider = ({
+    value,
+    children,
+}: {
+    value: FeatureFlagContextType
+    children: ReactNode
+}) => {
+    return (
+        <FeatureFlagContext.Provider value={value}>
+            {children}
+        </FeatureFlagContext.Provider>
+    )
+}
+
+export const useFeatureFlagContext = () => {
+    const context = useContext(FeatureFlagContext)
+    if (!context) {
+        throw Error(
+            'useFeatureFlagContext must be rendered within a FeatureFlagProvider'
+        )
+    }
+    return context
+}`}
+      />
+      <Paragraph>
+        Lets also fetch our environment variable in the root loader.
+      </Paragraph>
+      <CodeSnippet
+        language="typescript"
+        code={`// app/root.tsx
+
+export const loader = () => {
+    const showItemSku = process.env.SHOW_ITEM_SKU === 'true'
+
+    return { showItemSku }
+}
+
+export default function App() {
+    const { showItemSku } = useLoaderData<typeof loader>()
+
+    return (
+        <html lang="en">
+            <head>
+              ...
+            </head>
+            <body>
+                <FeatureFlagProvider value={{ showItemSku }}>
+                    <Outlet />
+                </FeatureFlagProvider>
+               	...
+            </body>
+        </html>
+    )
+}`}
+      />
+      <Paragraph>
+        Next, we access the context in our component and conditionally render
+        the SKU.
+      </Paragraph>
+      <CodeSnippet
+        language="typescript"
+        code={`// app/components/InventoryItem.tsx
+export const InventoryItem = ({ item }: { item: InventoryItemType }) => {
+    const { showItemSku } = useFeatureFlagContext()
+
+    return (
+        <div
+            key={item.id}
+            className="..."
+        >
+		  	...
+            {showItemSku ? <p>SKU: {item.sku}</p> : null}
+            ...
+        </div>
+    )
+}`}
+      />
+      <Paragraph>
+        Fetching environment variables in our root loader and using React
+        Context to access values is a simple pattern for implementing feature
+        flags.
+      </Paragraph>
+      <Heading id={"use-feature-flag-to-gate-a-page"}>
+        Use Feature Flag to Gate a Page
+      </Heading>
+      <Paragraph>
+        For our last example we are going to add a new route to the application.
+        The new route will render serialized pages for each item. Each list item
+        will acts as a link to its item page. I’ll skip the code in the blog,
+        but you can check the changes in
+      </Paragraph>
     </main>
   );
 }
