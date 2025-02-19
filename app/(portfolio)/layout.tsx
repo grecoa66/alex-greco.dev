@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Alex Greco",
     description: "Frontend Engineer",
     images: {
-      url: "/sharing-card.png",
+      url: "/sharing-card.jpg",
       width: 800,
       height: 520,
     },
