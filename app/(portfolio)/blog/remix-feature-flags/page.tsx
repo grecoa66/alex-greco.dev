@@ -118,8 +118,8 @@ export default function RemixFeatureFlags() {
         First, let&apos;s set up some of the basic piece of the inventory
         application. Let&apos;s display the inventory for an IT department as a
         list of items. Each list item will display an item&apos;s title,
-        description, quantity, and location. First we'll define the type for an
-        inventory item. Then we'll define the JSX for a list item.
+        description, quantity, and location. First we&apos;ll define the type
+        for an inventory item. Then we&apos;ll define the JSX for a list item.
       </Paragraph>
       <CodeSnippet
         code={`// app/types/inventory.ts
@@ -268,8 +268,8 @@ export const InventoryPage = () => {
       </Heading>
 
       <Paragraph>
-        Let&apos;s refactor our example by abstracting out the list item. We'll
-        move our list item code into a component called{" "}
+        Let&apos;s refactor our example by abstracting out the list item.
+        We&apos;ll move our list item code into a component called{" "}
         <InlineCode>{"<InventoryItem/>"}</InlineCode>. It accepts an inventory
         item as a prop and returns item UI.
       </Paragraph>
