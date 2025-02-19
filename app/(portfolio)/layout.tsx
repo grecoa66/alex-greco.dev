@@ -20,6 +20,9 @@ export const metadata: Metadata = {
       height: 520,
     },
   },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
