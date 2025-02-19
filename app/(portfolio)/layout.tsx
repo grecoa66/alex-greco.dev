@@ -16,11 +16,12 @@ const domain =
 export const metadata: Metadata = {
   title: "Alex Greco",
   description: "Frontend Engineer",
+  metadataBase: new URL(domain),
   openGraph: {
     title: "Alex Greco",
     description: "Frontend Engineer",
     images: {
-      url: `${domain}/sharing-card.jpg`,
+      url: "/sharing-card.jpg",
       width: 800,
       height: 520,
     },
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Alex Greco",
     description: "Frontend Engineer",
     card: "summary_large_image",
-    images: { url: `${domain}/sharing-card.jpg`, width: 800, height: 520 },
+    images: { url: "/sharing-card.jpg", width: 800, height: 520 },
   },
 };
 
