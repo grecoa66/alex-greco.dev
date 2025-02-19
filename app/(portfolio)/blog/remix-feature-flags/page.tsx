@@ -14,10 +14,10 @@ export default function RemixFeatureFlags() {
     <main className="mx-auto flex min-h-[calc(100vh-theme(space.16))] max-w-[740px] flex-col content-center bg-white p-6 dark:bg-black md:p-10 lg:p-8 lg:px-16 lg:py-12">
       <Title title="Zero Dependency Feature Flags in Remix" />
       <Paragraph>
-        Have you ever authored a new feature for your web app and then waited a
-        week or longer to release it? The marketing team hasn&apos;t finished
-        their email campaign, or a product manager wants to wait for another
-        team to complete a companion feature. There are many reasons why
+        Have you ever authored a new feature for your application and then
+        waited a week or longer to release it? The marketing team hasn&apos;t
+        finished their email campaign, or a product manager wants to wait for
+        another team to complete a companion feature. There are many reasons why
         complete code may sit in a feature branch for weeks.
       </Paragraph>
       <Paragraph>
@@ -31,7 +31,7 @@ export default function RemixFeatureFlags() {
         A feature flag is a technique to show, hide, enable, or disable a
         feature during runtime. They can be as simple as a boolean value used to
         show or hide a feature, or as complex as a 3rd party integration that
-        enables different features for subsets of a user base.
+        enables different features for subsets of users.
       </Paragraph>
       <Paragraph>
         This article will focus on two use-cases: showing or hiding a particular
@@ -79,7 +79,7 @@ export default function RemixFeatureFlags() {
         </ListItem>
         <ListItem>
           Each list item should be clickable. When clicked, it should navigate
-          to a details page with more item info.
+          to a item details page.
         </ListItem>
         <ListItem indented={true}>
           This page is controlled by the <InlineCode>SHOW_ITEM_PAGE</InlineCode>{" "}
@@ -271,7 +271,7 @@ export const InventoryPage = () => {
         Let&apos;s refactor our example by abstracting out the list item.
         We&apos;ll move our list item code into a component called{" "}
         <InlineCode>{"<InventoryItem/>"}</InlineCode>. It accepts an inventory
-        item as a prop and returns item UI.
+        item as a prop and returns our list item component.
       </Paragraph>
       <Paragraph>
         We could pass the value of <InlineCode>SHOW_SKU_ITEM</InlineCode> as a
@@ -368,8 +368,8 @@ export const InventoryItem = ({ item }: { item: InventoryItemType }) => {
       />
       <Paragraph>
         Fetching environment variables in our root loader and using React
-        Context to access values is a simple pattern for implementing feature
-        flags.
+        Context to access values is a simple pattern for implementing
+        client-side feature flags.
       </Paragraph>
       <Heading id={"use-feature-flag-to-gate-a-page"}>
         Use Feature Flag to Gate a Page
