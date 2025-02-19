@@ -1,5 +1,5 @@
+import { AKGIcon } from "@/app/components/AKGIcon";
 import { CodeSnippet } from "@/app/components/blog/CodeSnippet";
-import { CodeSnippet2 } from "@/app/components/blog/CodeSnippet2";
 import { Heading } from "@/app/components/blog/Heading";
 import { InlineCode } from "@/app/components/blog/InlineCode";
 import { Link } from "@/app/components/blog/Link";
@@ -120,10 +120,8 @@ export default function RemixFeatureFlags() {
         item. Then we'll define the JSX for a list item.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// app/types/inventory.ts
-
-// Type definition for an iventory item
+// Type definition for an inventory item
 export type InventoryItem = {
   readonly id: string
   readonly sku: string
@@ -137,9 +135,7 @@ export type InventoryItem = {
 }`}
       />
       <CodeSnippet
-        language="react"
         code={`// app/routes/_index.tsx
-
 // UI for displaying an inventory item.
 // Currently the SKU is not rendered.
 <div
@@ -183,7 +179,6 @@ export type InventoryItem = {
         hosting provider’s docs.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// .env
 SHOW_ITEM_SKU="true"`}
       />
@@ -207,9 +202,7 @@ SHOW_ITEM_SKU="true"`}
         declare a type for our environment variable.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// app/global.d.ts
-
 type FeatureFlagValues = 'true' | 'false'
 
 declare namespace NodeJS { 
@@ -228,9 +221,7 @@ declare namespace NodeJS {
         variables value and have a reference in our page component.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// app/routes/_index.tsx
-
 export const loader = () => {
     // in lieu of a fetching from an external source...
     const inventoryItems = inventoryList
@@ -256,8 +247,8 @@ export const loader = () => {
         the SKU.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
-        code={`export const InventoryPage = () => {
+        code={`// app/routes/_index.tsx
+export const InventoryPage = () => {
   const { inventoryItems, showItemSku } = useLoaderData<typeof loader>();
 
   return (
@@ -291,9 +282,7 @@ export const loader = () => {
       </Paragraph>
 
       <CodeSnippet
-        language="typescript"
         code={`// app/context/FeatureFlagContext.tsx
-
 import { ReactNode, createContext, useContext } from 'react'
 
 type FeatureFlagContextType = {
@@ -332,9 +321,7 @@ export const useFeatureFlagContext = () => {
         Lets also fetch our environment variable in the root loader.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// app/root.tsx
-
 export const loader = () => {
     const showItemSku = process.env.SHOW_ITEM_SKU === 'true'
 
@@ -346,14 +333,11 @@ export default function App() {
 
     return (
         <html lang="en">
-            <head>
               ...
-            </head>
             <body>
                 <FeatureFlagProvider value={{ showItemSku }}>
                     <Outlet />
                 </FeatureFlagProvider>
-               	...
             </body>
         </html>
     )
@@ -364,7 +348,6 @@ export default function App() {
         the SKU.
       </Paragraph>
       <CodeSnippet
-        language="typescript"
         code={`// app/components/InventoryItem.tsx
 export const InventoryItem = ({ item }: { item: InventoryItemType }) => {
     const { showItemSku } = useFeatureFlagContext()
@@ -393,8 +376,87 @@ export const InventoryItem = ({ item }: { item: InventoryItemType }) => {
         For our last example we are going to add a new route to the application.
         The new route will render serialized pages for each item. Each list item
         will acts as a link to its item page. I’ll skip the code in the blog,
-        but you can check the changes in
+        but you can check the changes in{" "}
+        <Link
+          href="https://github.com/grecoa66/remix-feature-flags/commit/33ed38da3cad374202213cfa78968a182aa971e2"
+          text="this commit."
+        />
       </Paragraph>
+      <Paragraph>
+        Let’s imagine our designer and PM are not ready to release this page for
+        our users. The PM doesn’t want list items to act as links, and they want
+        the user to see a <InlineCode>404</InlineCode> if they navigate directly
+        to an item page via the URL. The engineering team has already completed
+        work and wants to avoid stashing their progress in a feature branch.
+        With a simple feature flag, both parties can get what they want. We can
+        accomplish this with our <InlineCode>FeatureFlagContext</InlineCode> and
+        a loader response.
+      </Paragraph>
+      <Paragraph>
+        First we’ll add a new environment variable, types, and context. I’ll
+        skip the code example, but you can read{" "}
+        <Link
+          href="https://github.com/grecoa66/remix-feature-flags/commit/2314d54dfa236a09acf4e08436af215176af5150"
+          text="this commit"
+        />{" "}
+        to follow along. The variable will be named{" "}
+        <InlineCode>SHOW_ITEM_PAGE</InlineCode> and have a value of{" "}
+        <InlineCode>false</InlineCode>.
+      </Paragraph>
+      <Paragraph>
+        Next, in our loader for the item page, we’ll check the environment
+        variable and throw a <InlineCode>Not Found</InlineCode> response if{" "}
+        <InlineCode>SHOW_ITEM_PAGE</InlineCode> is set to false.
+      </Paragraph>
+      <CodeSnippet
+        code={`// app/routes/inventory.$id.tsx
+export const loader = ({ params }: LoaderFunctionArgs) => {
+  ...
+  const showItemPage = process.env.SHOW_ITEM_PAGE
+
+  if (!showItemPage) {
+      throw new Response(null, {
+          status: 404,
+          statusText: 'Not Found',
+      })
+  }
+  ...
+})`}
+      />
+      <Paragraph>
+        Because we are checking the environment variables value in the loader,
+        the page will throw a <InlineCode>404</InlineCode> not found before any
+        UI is rendered in the browser. This is useful if you don’t want user to
+        navigate directly to a page via the URL.
+      </Paragraph>
+      <Paragraph>
+        Just like before, we can load the new environment variable in our client
+        side context. This will allow us to render a link or not based on the
+        value of <InlineCode>SHOW_ITEM_PAGE</InlineCode>. Again I’ll skip the
+        example to avoid repeating myself in this blog.
+      </Paragraph>
+      <Paragraph>
+        You can test this out by changing the value in the{" "}
+        <InlineCode>.env</InlineCode> file and restarting the dev sever. If the
+        value is false, nothing will change. If true, the inventory cards will
+        be clickable links to the new serialized inventory pages.
+      </Paragraph>
+      <Heading id="conclusion">Conclusion</Heading>
+      <Paragraph>
+        And that’s it! The code for the route is deployed but hidden for our end
+        users. This can easily be changed by modifying our environment variable
+        and deploying our application or infrastructure.{" "}
+      </Paragraph>
+      <Paragraph>
+        There are many other use-cases where this pattern can be useful. If you
+        would like to chat about them or other frontend topics you reach me at{" "}
+        <Link
+          href="mailto:alex-greco-dev@gmail.com"
+          text="alex-greco-dev@gmail.com"
+        />
+        .
+      </Paragraph>
+      <AKGIcon className="mt-8" />
     </main>
   );
 }
