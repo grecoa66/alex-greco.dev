@@ -10,7 +10,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Alex Greco",
-  description: "Portfolio Site",
+  description: "Frontend Engineer",
+  openGraph: {
+    title: "Alex Greco",
+    description: "Frontend Engineer",
+    images: {
+      url: "/sharing-card.jpg",
+      width: 800,
+      height: 520,
+    },
+  },
 };
 
 export default function RootLayout({
