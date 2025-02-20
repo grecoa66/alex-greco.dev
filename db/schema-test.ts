@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/neon-http";
 import { eq } from "drizzle-orm";
 import { blogPostTable } from "./schema";
 
-const db = drizzle(process.env.DATABASE_URL!);
+const db = drizzle(process.env.NEON_POSTGRES_DATABASE_URL!);
 
 async function main() {
   const user: typeof blogPostTable.$inferInsert = {
