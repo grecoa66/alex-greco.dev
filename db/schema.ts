@@ -8,7 +8,8 @@ const timestamps = {
 
 export const blogPostTable = pgTable("blog_posts", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  title: varchar({ length: 255 }).notNull(),
+  title: varchar({ length: 255 }).notNull().unique(),
   views: integer().default(0),
+  last_viewed: timestamp().defaultNow().notNull(),
   ...timestamps,
 });

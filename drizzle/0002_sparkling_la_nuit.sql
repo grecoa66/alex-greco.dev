@@ -1,0 +1,1 @@
+ALTER TABLE "blog_posts" ADD COLUMN "last_viewed" timestamp DEFAULT now() NOT NULL;
