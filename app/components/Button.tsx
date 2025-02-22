@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ButtonHTMLAttributes } from "react";
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { IconType } from "react-icons";
 import { twMerge } from "tailwind-merge";
 
@@ -95,9 +95,13 @@ export const LinkButton = ({
   className?: string;
   StartIcon?: IconType;
   EndIcon?: IconType;
-} & ButtonHTMLAttributes<HTMLButtonElement>) => {
+} & AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <Link href={href} className={twMerge(getButtonStyles(variant), className)}>
+    <Link
+      href={href}
+      className={twMerge(getButtonStyles(variant), className)}
+      {...props}
+    >
       {StartIcon && <StartIcon />}
       <span>{text}</span>
       {EndIcon && <EndIcon />}
