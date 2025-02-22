@@ -3,6 +3,7 @@ import { Pill } from "../components/Pill";
 import { SocialLinks } from "../components/SocialLinks";
 import { AKGIcon } from "../components/AKGIcon";
 import { ExperiencePanel } from "../components/ExperiencePanel";
+import { DownloadResumeButton } from "../components/DownloadResumeButton";
 
 const PopText = ({ text }: { text: string }) => (
   <span className="font-semibold text-celtic-200 dark:text-mint-400">
@@ -112,6 +113,7 @@ export default function Home() {
           }
         />
       </div>
+      <DownloadResumeButton classNames={"my-8 mx-auto"} />
       <AKGIcon className="my-8" />
     </main>
   );
