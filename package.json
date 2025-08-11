@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.9.0",
     "@neondatabase/serverless": "^0.10.4",
     "@tailwindcss/typography": "^0.5.13",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/postgres": "^0.10.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.39.3",

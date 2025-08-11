@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { AppProvider } from "../components/providers";
 import { Header } from "../components/Header";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body
         className={twMerge(inter.className, "relative bg-white  dark:bg-black")}
       >
+        <Analytics />
         <AppProvider attribute="class">
           <Header />
           {children}
