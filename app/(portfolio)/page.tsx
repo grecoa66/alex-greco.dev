@@ -35,6 +35,41 @@ export default function Home() {
           Experience
         </h3>
         <ExperiencePanel
+          date="March 2025 - Present"
+          title={"Senior Software Engineer - The Langston Company"}
+          description={
+            <div className="flex flex-col gap-4">
+              <p>
+                Develop full-stack features for a consumer insights platform
+                that processes and analyzes millions of rows of tabular research
+                data. Build tools that enable researchers to label, transform,
+                merge, and synthesize complex datasets while integrating
+                LLM-powered workflows across the product. Contributed to the
+                development of Insights Assistant, an AI chatbot capable of
+                querying internal datasets, generating visualizations such as
+                crosstabs and funnel tables, and interacting with internal APIs
+                and documentation.
+              </p>
+              <p>
+                Collaborate closely with product and leadership to identify,
+                scope, and prioritize engineering initiatives. Help drive an
+                AI-accelerated development workflow by building tools, MCP
+                servers, and context pipelines that enable the engineering team
+                to leverage LLMs safely and effectively in daily development.
+              </p>
+            </div>
+          }
+          tech={
+            <>
+              <Pill text="Next.js" />
+              <Pill text="NestJS (API)" />
+              <Pill text="Typescript" />
+              <Pill text="PostgreSQL" />
+              <Pill text="Agentic Workflows" />
+            </>
+          }
+        />
+        <ExperiencePanel
           date="Jan 2024 - Present"
           title={"Senior Frontend Engineer - Dust Identity"}
           description={

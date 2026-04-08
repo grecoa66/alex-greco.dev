@@ -8,7 +8,7 @@ export const ExperiencePanel = ({
 }: {
   date: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
   tech: ReactNode;
 }) => {
   return (
@@ -21,9 +21,9 @@ export const ExperiencePanel = ({
           <h3 className="mb-2 text-lg text-celtic dark:text-mint-400">
             {title}
           </h3>
-          <p className="text-sm text-celtic dark:text-mint-400">
+          <div className="text-sm text-celtic dark:text-mint-400">
             {description ? description : null}
-          </p>
+          </div>
           <div className="mt-4 flex flex-row flex-wrap gap-2">{tech}</div>
         </div>
       </div>
@@ -35,9 +35,9 @@ export const ExperiencePanel = ({
           <div className="col-span-1 py-2 text-sm text-celtic dark:text-mint-400">
             {date}
           </div>
-          <p className="text-sm text-celtic dark:text-mint-400">
+          <div className="text-sm text-celtic dark:text-mint-400">
             {description ? description : null}
-          </p>
+          </div>
           <div className="mt-4 flex flex-row flex-wrap gap-2">{tech}</div>
         </div>
       </div>
