@@ -11,6 +11,15 @@ type Post = {
 
 const posts: Post[] = [
   {
+    slug: "ninety-nine-percent-ai",
+    title: "99% AI",
+    tag: "Essay",
+    description:
+      "How we built a truly agentic workflow, went from 1% to 99% AI-written code, and what that changed about how we work.",
+    date: "2026-06-26",
+    readTime: 7,
+  },
+  {
     slug: "one-percent-ai",
     title: "1% AI",
     tag: "Essay",

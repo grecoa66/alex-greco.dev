@@ -1,5 +1,6 @@
 import { AKGIcon } from "@/app/components/AKGIcon";
 import { Heading } from "@/app/components/blog/Heading";
+import { Link } from "@/app/components/blog/Link";
 import { Paragraph } from "@/app/components/blog/Paragraph";
 import { Title } from "@/app/components/blog/Title";
 import Image from "next/image";
@@ -9,7 +10,7 @@ export default function OnePercentAI() {
     <main className="mx-auto flex min-h-[calc(100vh-theme(space.16))] max-w-[740px] flex-col content-center bg-white p-6 dark:bg-black md:p-10 lg:p-8 lg:px-16 lg:py-12">
       <Title title="1% AI" />
       <Paragraph>
-        In the beginning of 2025, the engineering team at Langston was like many
+        In the beginning of 2025, the engineering team at <Link href="https://www.thelangstonco.com" text="The Langston Company" /> was like many
         others. We were skeptical of the grandiose claims about AI&apos;s coding
         abilities from major AI companies and LinkedIn influencers. Every day, we
         saw headlines and blog posts claiming that &quot;coding is dead&quot; and
