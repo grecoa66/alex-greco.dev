@@ -35,7 +35,7 @@ export default function Home() {
           Experience
         </h3>
         <ExperiencePanel
-          date="March 2025 - Present"
+          date="Mar 2025 - Present"
           title={"Senior Software Engineer - The Langston Company"}
           description={
             <div className="flex flex-col gap-4">
