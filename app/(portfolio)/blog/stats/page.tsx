@@ -1,6 +1,8 @@
 import { Title } from "@/app/components/blog/Title";
 import { getAllBlogRecords } from "../actions";
 
+export const dynamic = "force-dynamic";
+
 export default async function RemixFeatureFlags() {
   const blogRecords = await getAllBlogRecords();
 
