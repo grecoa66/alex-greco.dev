@@ -8,7 +8,7 @@ export const config = {
   matcher: "/blog/:path*",
 };
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   return blogViewMiddleware(request);
 }
 

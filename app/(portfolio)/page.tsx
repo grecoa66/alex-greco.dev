@@ -26,7 +26,7 @@ export default function Home() {
           I&apos;m a software engineer specializing in fullstack{" "}
           <PopText text="Javascript" /> development. My favorite tools are{" "}
           <PopText text="React," /> <PopText text="Typescript" /> and{" "}
-          <PopText text="Remix" />
+          <PopText text="Next.js" />
         </p>
       </div>
       <SocialLinks />
@@ -70,7 +70,7 @@ export default function Home() {
           }
         />
         <ExperiencePanel
-          date="Jan 2024 - Present"
+          date="Jan 2024 - Feb 2026"
           title={"Senior Frontend Engineer - Dust Identity"}
           description={
             "Rewrote a legacy React Admin application by leveraging Remix, React, Typescript, and Material UI, resulting in enhanced performance and a more intuitive user interface. Replaced a native iOS app with React Native, Typescript, and Expo, delivering a seamless cross-platform experience, modernized app functionality, and increased team velocity by enabling more team members to contribute."

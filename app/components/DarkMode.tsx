@@ -1,15 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { FaMoon, FaSun } from "react-icons/fa";
 
-export const DarkModeButton = () => {
-  const [mounted, setMounted] = useState(false);
-  const { theme, systemTheme, setTheme } = useTheme();
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export const DarkModeButton = () => {
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+  const { theme, systemTheme, setTheme } = useTheme();
 
   if (!mounted) {
     return null;
